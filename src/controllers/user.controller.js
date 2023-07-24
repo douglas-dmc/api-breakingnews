@@ -82,7 +82,7 @@ const update = async (req, res) => {
     background
   )
 
-  res.send({ message: 'User successfully update!'})
+  res.send({ message: 'User successfully update!' })
 
 }
 
