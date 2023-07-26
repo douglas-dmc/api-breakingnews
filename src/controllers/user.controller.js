@@ -1,29 +1,33 @@
 import userService from '../services/user.service.js'
 
 const create = async (req, res) => {
-  const { name, username, email, password, avatar, background } = req.body
+  try {
+    const { name, username, email, password, avatar, background } = req.body
 
-  if (!name || !username || !email ||  !password || !avatar || !background){
-    res.status(400).send({ message: "Submit all fields for registration" })
-  }
+    if (!name || !username || !email ||  !password || !avatar || !background){
+      res.status(400).send({ message: "Submit all fields for registration" })
+    }
+    
+    const user = await userService.createService(req.body)
   
-  const user = await userService.createService(req.body)
-
-  if (!user){
-    return res.status(400).send({ message: 'Error creating User'})
+    if (!user){
+      return res.status(400).send({ message: 'Error creating User'})
+    }
+  
+      res.status(201).json({
+        message: "User created successfully",
+        user: {
+          id: user._id,
+          name,
+          username,
+          email,
+          avatar,
+          background
+        }
+      })
+  } catch (error) {
+      res.status(500).send({ message: error.message })
   }
-
-    res.status(201).json({
-      message: "User created successfully",
-      user: {
-        id: user._id,
-        name,
-        username,
-        email,
-        avatar,
-        background
-      }
-    })
 }
 
 const findAll = async (req, res) => {
