@@ -45,7 +45,6 @@ const findAll = async (req, res) => {
 }
 
 const findById = async (req, res) => {
-
   const user = req.user
 
   res.send(user)
