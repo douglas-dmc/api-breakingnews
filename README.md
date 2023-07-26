@@ -26,3 +26,11 @@ Instalação e Configuração do App MERN STACK "api-breakingnews"
 
 ## Instalação do "mongoose" para conexão ao MongoDB
 - `npm i mongoose`
+
+## Instalação do "dotenv" para variáveis de ambiente visando a conexão do banco de dados (arquivo db.js)
+- `npm i dotenv`
+
+## Utilização do método try/catch para tratamento de erros no arquivo user.controller.js
+
+## Instalação do pacote bcrypt para criptografia de senhas
+- `npm i --save bcrypt-nodejs`
