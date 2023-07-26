@@ -31,13 +31,17 @@ const create = async (req, res) => {
 }
 
 const findAll = async (req, res) => {
-  const users = await userService.findAllService()
+  try {
+    const users = await userService.findAllService()
 
-  if (users.length === 0){
-    return res.status(400).send({ message: 'There are no registered users' })
+    if (users.length === 0){
+      return res.status(400).send({ message: 'There are no registered users' })
+    }
+
+    res.send(users)
+  } catch (error) {
+    res.status(500).send({ message: error.message })
   }
-
-  res.send(users)
 }
 
 const findById = async (req, res) => {
@@ -48,25 +52,29 @@ const findById = async (req, res) => {
 }
 
 const update = async (req, res) => {
-  const { name, username, email, password, avatar, background } = req.body
+  try {
+    const { name, username, email, password, avatar, background } = req.body
 
-  if (!name && !username && !email &&  !password && !avatar && !background){
-    res.status(400).send({ message: "Submit all fields for registration" })
+    if (!name && !username && !email &&  !password && !avatar && !background){
+      res.status(400).send({ message: "Submit all fields for registration" })
+    }
+
+    const {id, user} = req
+
+    await userService.updateService(
+      id,
+      name,
+      username,
+      email,
+      password,
+      avatar,
+      background
+    )
+
+    res.send({ message: 'User successfully update!' })
+  } catch (error) {
+    res.status(500).send({ message: error.message })
   }
-
-  const {id, user} = req
-
-  await userService.updateService(
-    id,
-    name,
-    username,
-    email,
-    password,
-    avatar,
-    background
-  )
-
-  res.send({ message: 'User successfully update!' })
 
 }
 
