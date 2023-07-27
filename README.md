@@ -34,3 +34,6 @@ Instalação e Configuração do App MERN STACK "api-breakingnews"
 
 ## Instalação do pacote bcrypt para criptografia de senhas
 - `npm i --save bcrypt-nodejs`
+
+## Instalação do pacote JWT 
+- `npm i jsonwebtoken`
