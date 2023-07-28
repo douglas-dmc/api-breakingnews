@@ -8,7 +8,7 @@ const dataport = process.env.DB_PORT
 const database = process.env.DB_NAME
 
 const connectDatabase = () => {
-    console.log('Wait connecting to the database')
+    console.log('Wait connecting to the database...')
     
     mongoose.connect(`mongodb://${hostname}:${dataport}/${database}`, {useNewUrlParser: true})
     .then(() => console.log('MongoDB connected'))

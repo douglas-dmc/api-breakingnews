@@ -2,9 +2,26 @@ import { createService, findAllService } from '../services/news.service.js'
 
 const create = async (req, res) => {
     try {
+        const { authorization } = req.headers
+        
+        if (!authorization){
+            return res.sendStatus(401)
+        }
+
+        const parts = authorization.split(' ') 
+        const [schema, token] = parts
+
+        if (schema !== 'Bearer'){
+            return res.sendStatus(401)
+        }
+
+        if (parts.length !== 2){
+            return res.sendStatus(401)
+        }
+ 
         const { title, text, banner } = req.body
 
-        if (!title || !text| !banner){
+        if (!title || !text || !banner){
             res.status(400).send({ message: "Submite all fields for registration"})
         }
 
@@ -14,7 +31,7 @@ const create = async (req, res) => {
             banner,
             user: { _id: "64bef696fd6bcccf204271e0" }
         })
-
+ 
         res.sendStatus(201)
     } catch (error) {
         res.status(500).send({ message: error.message })
