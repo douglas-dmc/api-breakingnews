@@ -4,6 +4,7 @@ import {
     findAllService,
     findByIdService,
     topNewsService,
+    searchByTitleService,
 } from "../services/news.service.js"
 
 const create = async (req, res) => {
@@ -138,4 +139,33 @@ const findById = async (req, res) => {
     }
 }
 
-export { create, findAll, topNews, findById }
+const searchByTitle = async (req, res) => {
+    try {
+        const { title } = req.query
+        const news = await searchByTitleService(title)
+
+        if (news.length === 0) {
+            return res
+                .status(400)
+                .send({ message: "There are no posts with this title" })
+        }
+
+        return res.send({
+            results: news.map((Item) => ({
+                id: Item._id,
+                title: Item.title,
+                text: Item.text,
+                banner: Item.banner,
+                likes: Item.likes,
+                comments: Item.comments,
+                name: Item.user.name,
+                userName: Item.user.username,
+                userAvatar: Item.user.avatar,
+            })),
+        })
+    } catch (error) {
+        res.status(500).send({ message: error.message })
+    }
+}
+
+export { create, findAll, topNews, findById, searchByTitle }
