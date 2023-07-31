@@ -30,6 +30,18 @@ const updateService = (id, title, text, banner) =>
 
 const eraseService = (id) => News.findByIdAndDelete({ _id: id })
 
+const likeNewsService = (id, userId) =>
+    News.findOneAndUpdate(
+        { _id: id, "likes.userId": { $nin: [userId] } },
+        { $push: { likes: { userId, createdAt: new Date() } } }
+    )
+
+const deleteLikeNewsService = (id, userId) =>
+    News.findOneAndUpdate(
+        { _id: id },
+        { $pull: { likes: { userId } } }
+    )
+
 export {
     createService,
     findAllService,
@@ -40,4 +52,6 @@ export {
     byUserService,
     updateService,
     eraseService,
+    likeNewsService,
+    deleteLikeNewsService,
 }
