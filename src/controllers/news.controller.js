@@ -5,6 +5,7 @@ import {
     findByIdService,
     topNewsService,
     searchByTitleService,
+    byUserService,
 } from "../services/news.service.js"
 
 const create = async (req, res) => {
@@ -168,4 +169,27 @@ const searchByTitle = async (req, res) => {
     }
 }
 
-export { create, findAll, topNews, findById, searchByTitle }
+const byUser = async (req, res) => {
+    try {
+        const id = req.userId
+        const news = await byUserService(id)
+
+        return res.send({
+            results: news.map((Item) => ({
+                id: Item._id,
+                title: Item.title,
+                text: Item.text,
+                banner: Item.banner,
+                likes: Item.likes,
+                comments: Item.comments,
+                name: Item.user.name,
+                userName: Item.user.username,
+                userAvatar: Item.user.avatar,
+            })),
+        })
+    } catch (error) {
+        res.status(500).send({ message: error.message })
+    }
+}
+
+export { create, findAll, topNews, findById, searchByTitle, byUser }
