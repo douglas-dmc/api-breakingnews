@@ -1,0 +1,21 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "api-breakingnews",
+        "description": "API para back-end",
+        "contact": {
+            "email": "marq@hotmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "server": [
+        {
+            "url": "http://localhost:3000",
+            "description": "Local Server"
+        }
+    ],
+    "paths": {
+        "/user": {}
+    },
+    "components": {}
+}

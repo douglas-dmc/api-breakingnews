@@ -37,3 +37,6 @@ Instalação e Configuração do App MERN STACK "api-breakingnews"
 
 ## Instalação do pacote JWT 
 - `npm i jsonwebtoken`
+
+## Instalação do pacote swagger-ui-express para documentação das rotas
+- `npm i swagger-ui-express`
