@@ -325,7 +325,7 @@
           }
         }
       },
-      "/ponews/search": {
+      "/news/search": {
         "get": {
           "summary": "Search posts by title",
           "description": "Route responsible for fetching the posts that match the title sent via query params",
@@ -359,7 +359,7 @@
         }
       },
       "/news/{id}": {
-        "patch": {
+        "get": {
           "summary": "Search post by id",
           "description": "Route responsible for fetching post by id",
           "tags": ["News"],
@@ -576,7 +576,7 @@
           }
         }
       },
-      "/news/comment/{id}/{idComment": {
+      "/news/comment/{id}/{idComment}": {
         "patch": {
           "summary": "Delete on a comment",
           "description": "Route responsible for deleting on a comment",
