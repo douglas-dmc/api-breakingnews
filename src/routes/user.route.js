@@ -1,6 +1,6 @@
 import express from 'express'
 import userController from '../controllers/user.controller.js'
-import { validUser, validId } from '../middlewares/global.middlewares.js'
+import { validUser, validId } from '../middlewares/global.middleware.js'
 
 const route = express.Router()
 
