@@ -1,18 +1,24 @@
-import mongoose from 'mongoose'
-import dotenv from 'dotenv'
+import mongoose from "mongoose"
+import dotenv from "dotenv"
 
 dotenv.config()
 
-const hostname = process.env.DB_HOST
-const dataport = process.env.DB_PORT
-const database = process.env.DB_NAME
+const username = process.env.DB_USER
+const password = process.env.DB_PWD
 
 const connectDatabase = () => {
-    console.log('Wait connecting to the database...')
-    
-    mongoose.connect(`mongodb://${hostname}:${dataport}/${database}`, {useNewUrlParser: true})
-    .then(() => console.log('MongoDB connected'))
-    .catch((error) => console.log(error))
+    console.log("Wait connecting to the database...")
+
+    mongoose
+        .connect(
+            `mongodb+srv://${username}:${password}@cluster0.vcnesjk.mongodb.net/?retryWrites=true&w=majority`,
+            {
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+            }
+        )
+        .then(() => console.log("MongoDB Atlas connected"))
+        .catch((error) => console.log(error))
 }
 
 export default connectDatabase
