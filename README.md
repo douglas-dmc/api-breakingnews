@@ -1,6 +1,7 @@
 Instalação e Configuração do App MERN STACK "api-breakingnews"
 ==============================================
 
+# 1. Criação do back-end
 ## Criação do projeto em Node.js
 - `npm init -y`
 
@@ -40,3 +41,11 @@ Instalação e Configuração do App MERN STACK "api-breakingnews"
 
 ## Instalação do pacote swagger-ui-express para documentação das rotas
 - `npm i swagger-ui-express`
+
+# 2. Criação do front-end
+
+## Instalação do vite
+- `npm create vite@latest spa-breakingnews`
+- `cd spa-breakingnews`
+- `npm install`
+- `npm run dev`
