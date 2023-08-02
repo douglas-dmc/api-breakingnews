@@ -689,7 +689,7 @@
         "Comment": {
           "type": "object",
           "properties": {
-            "message": {
+            "comment": {
               "type": "string"
             }
           }
