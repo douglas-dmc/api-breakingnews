@@ -4,18 +4,16 @@ import dotenv from "dotenv"
 dotenv.config()
 
 const hostname = process.env.DB_HOST
-const dataport = process.env.DB_PORT
-const database = process.env.DB_NAME
 
 const connectDatabase = () => {
     console.log("Wait connecting to the database...")
 
     mongoose
-        .connect(`mongodb://${hostname}:${dataport}/${database}`, {
+        .connect(hostname, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         })
-        .then(() => console.log("MongoDB connected"))
+        .then(() => console.log("MongoDB Atlas connected"))
         .catch((error) => console.log(error))
 }
 
