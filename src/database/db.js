@@ -20,5 +20,5 @@ const connectDatabase = () => {
         .then(() => console.log("MongoDB Atlas connected"))
         .catch((error) => console.log(error))
 }
-
+ 
 export default connectDatabase
