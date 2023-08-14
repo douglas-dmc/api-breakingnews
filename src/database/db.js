@@ -1,5 +1,5 @@
-import mongoose from "mongoose"
-import dotenv from "dotenv"
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
 
 dotenv.config()
 
@@ -7,7 +7,7 @@ const username = process.env.DB_USER
 const password = process.env.DB_PWD
 
 const connectDatabase = () => {
-    console.log("Wait connecting to the database...")
+    console.log('Wait connecting to the database...')
 
     mongoose
         .connect(
@@ -17,8 +17,8 @@ const connectDatabase = () => {
                 useUnifiedTopology: true,
             }
         )
-        .then(() => console.log("MongoDB Atlas connected"))
+        .then(() => console.log('MongoDB Atlas connected'))
         .catch((error) => console.log(error))
 }
- 
+
 export default connectDatabase
