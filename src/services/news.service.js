@@ -157,7 +157,7 @@ async function updateNewsService(id, title, banner, text, userId) {
 }
 
 async function deleteNewsService(id, userId) {
-    const news = await newsRepositories.findNewsByIdService(id)
+    const news = await newsRepository.findNewsByIdService(id)
 
     if (!news) throw new Error("Post not found")
 
@@ -170,41 +170,41 @@ async function likeNewsService(id, userId) {
     const postLiked = await newsRepositories.likesRepository(id, userId)
 
     if (postLiked.lastErrorObject.n === 0) {
-        await postService.likesDeleteService(id, userId)
+        await newsRepositories.likesDeleteRepository(id, userId)
         return { message: "Like successfully removed" }
     }
 
     return { message: "Like done successfully" }
 }
 
-async function commentPostService(postId, message, userId) {
+async function commentNewsService(postId, message, userId) {
     if (!message) throw new Error("Write a message to comment")
 
-    const post = await postRepositories.findPostByIdRepository(postId)
+    const post = await newsRepositories.findPostByIdRepository(postId)
 
     if (!post) throw new Error("Post not found")
 
-    await postRepositories.commentsRepository(postId, message, userId)
+    await newsRepositories.commentsRepository(postId, message, userId)
 }
 
-async function commentDeletePostService(postId, userId, idComment) {
-    const post = await postRepositories.findPostByIdRepository(postId)
+async function commentDeleteNewsService(postId, userId, idComment) {
+    const post = await newsRepositories.findNewsByIdRepository(postId)
 
     if (!post) throw new Error("Post not found")
 
-    await postRepositories.commentsDeleteRepository(postId, userId, idComment)
+    await newsRepositories.commentsDeleteRepository(postId, userId, idComment)
 }
 
 export default {
-    createPostService,
-    findAllPostsService,
+    createNewsService,
+    findAllNewsService,
     topNewsService,
-    searchPostService,
-    findPostByIdService,
-    findPostsByUserIdService,
-    updatePostService,
-    deletePostService,
-    likePostService,
-    commentPostService,
-    commentDeletePostService,
+    searchNewsService,
+    findNewsByIdService,
+    findNewsByUserIdService,
+    updateNewsService,
+    deleteNewsService,
+    likeNewsService,
+    commentNewsService,
+    commentDeleteNewsService,
 }
