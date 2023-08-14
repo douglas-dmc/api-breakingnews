@@ -24,7 +24,7 @@
       }
     ],
     "paths": {
-      "/user/": {
+      "/user/create": {
         "post": {
           "summary": "Create a new user",
           "description": "Route responsible for creating a new user",
@@ -97,7 +97,7 @@
           }
         }
       },
-      "/user/{id}/": {
+      "/user/findById/{id}": {
         "get": {
           "summary": "Search user by id",
           "description": "Route responsible for searching for user by id",
@@ -133,7 +133,7 @@
           }
         }
       },
-      "/user/{id}": {
+      "/user/update/{id}": {
         "patch": {
           "summary": "Update user by id",
           "description": "Route responsible for editing the user by id",
@@ -185,7 +185,7 @@
           }
         }
       },
-      "/auth": {
+      "/auth/login": {
         "post": {
           "summary": "Login to Breaking News",
           "description": "Route responsible for logging in a registered user",
@@ -217,7 +217,7 @@
           }
         }
       },
-      "/news/": {
+      "/news/create": {
         "post": {
           "summary": "Create a new post",
           "description": "Route responsible for creating a new Post",
@@ -358,7 +358,7 @@
           }
         }
       },
-      "/news/{id}": {
+      "/news/byIdPost/{id}": {
         "get": {
           "summary": "Search post by id",
           "description": "Route responsible for fetching post by id",
@@ -394,7 +394,7 @@
           }
         }
       },
-      "/news/byUser": {
+      "/news/byUserId": {
         "get": {
           "summary": "Search posts by use id",
           "description": "Route responsible for fetching posts by use id",
@@ -422,7 +422,7 @@
           }
         }
       },
-      "/news/{id}/": {
+      "/news/update/{id}": {
         "patch": {
           "summary": "Update a post",
           "description": "Route responsible for updating a Post",
@@ -476,7 +476,7 @@
           }
         }
       },
-      "/news/{id}": {
+      "/news/delete/{id}": {
         "delete": {
           "summary": "Delete a post",
           "description": "Route responsible for deleting a Post",
@@ -504,7 +504,7 @@
           }
         }
       },
-      "/news/like/{id}": {
+      "/news/{id}/like": {
         "patch": {
           "summary": "Like a post",
           "description": "Route responsible for liking a post",
@@ -532,7 +532,7 @@
           }
         }
       },
-      "/news/comment/{id}/": {
+      "/news/{id}/comment": {
         "patch": {
           "summary": "Comment on a post",
           "description": "Route responsible for commenting on a post",
@@ -576,7 +576,7 @@
           }
         }
       },
-      "/news/comment/{id}/{idComment}": {
+      "/news/{id}/{idComment}/comment": {
         "patch": {
           "summary": "Delete on a comment",
           "description": "Route responsible for deleting on a comment",
