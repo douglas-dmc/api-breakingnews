@@ -9,6 +9,6 @@ const jwtKey = process.env.SECRET_JWT
 const loginService = (email) =>
     User.findOne({ email: email }).select("+password")
 
-const generateToken = (id) => jwt.sign({ id: id }, jwtKey, { expiresIn: 1800 })
+const generateToken = (id) => jwt.sign({ id: id }, jwtKey, { expiresIn: 43200 })
 
 export { loginService, generateToken }
