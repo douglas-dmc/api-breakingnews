@@ -1,4 +1,4 @@
-import newsRepositories from "../repositories/post.repositories.js"
+import newsRepositories from "../repositories/news.repositories.js"
 
 async function createNewsService({ title, banner, text }, userId) {
     if (!title || !banner || !text)

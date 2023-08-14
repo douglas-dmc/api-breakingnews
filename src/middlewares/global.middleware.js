@@ -1,29 +1,16 @@
-import mongoose from 'mongoose'
-import userService from '../services/user.service.js'
+import mongoose from "mongoose"
 
-export const validId = (req, res, next) => {
-    const id = req.params.id
-
-    if (!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(400).send({ message: 'Invalid Id' })
+export function validId(req, res, next) {
+    let idParam
+    if (!req.params.id) {
+        req.params.id = req.userId
+        idParam = req.params.id
+    } else {
+        idParam = req.params.id
     }
 
-    next()
-}
-
-export const validUser = async (req, res, next) => {
-    const id = req.params.id
-
-    const user = await userService.findByIdService(id)
-
-    if (!user){
-        return res.status(400).send({ message: 'User not found' })
+    if (!mongoose.Types.ObjectId.isValid(idParam)) {
+        return res.status(400).send({ message: "Invalid id!" })
     }
-
-    req.id = id
-    req.user = user
-
     next()
 }
-
-export default { validId, validUser }

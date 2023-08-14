@@ -1,5 +1,5 @@
-import userRepositories from "../repositories/user.repositories"
-import authService from "../services/auth.service"
+import userRepositories from "../repositories/user.repositories.js"
+import authService from "../services/auth.service.js"
 import bcrypt from "bcrypt-nodejs"
 
 async function createUserService({

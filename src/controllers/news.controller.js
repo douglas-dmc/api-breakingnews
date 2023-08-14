@@ -1,4 +1,4 @@
-import newsService from "../services/post.service.js"
+import newsService from "../services/news.service.js"
 
 async function createNewsController(req, res) {
     const { title, banner, text } = req.body

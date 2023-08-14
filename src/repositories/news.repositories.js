@@ -1,4 +1,4 @@
-import News from "../models/Post.js"
+import News from "../models/News.js"
 
 function createNewsRepository(title, banner, text, userId) {
     return News.create({ title, banner, text, user: userId })
