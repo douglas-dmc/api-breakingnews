@@ -1,35 +1,35 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose"
 
 const NewsSchema = new mongoose.Schema({
     title: {
         type: String,
-        require: true
+        require: true,
     },
     text: {
         type: String,
-        require: true
+        require: true,
     },
     banner: {
         type: String,
-        require: true
+        require: true,
     },
     createdAt: {
         type: Date,
-        default: Date.now()
+        default: Date.now(),
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-        require: true
+        require: true,
     },
     likes: {
         type: Array,
-        require: true
+        require: true,
     },
     comments: {
         type: Array,
-        require: true
-    }
+        require: true,
+    },
 })
 
 const News = mongoose.model("News", NewsSchema)

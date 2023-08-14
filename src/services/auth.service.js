@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken"
 import dotenv from "dotenv"
 import userRepositories from "../repositories/user.repositories.js"
+import bcrypt from "bcryptjs"
 
 dotenv.config()
 

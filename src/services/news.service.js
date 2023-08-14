@@ -22,14 +22,14 @@ async function findAllNewsService(limit, offset, currentUrl) {
     offset = Number(offset)
 
     if (!limit) {
-        limit = 5
+        limit = 6
     }
 
     if (!offset) {
         offset = 0
     }
 
-    const posts = await newsRepositories.findAllNewsService(offset, limit)
+    const news = await newsRepositories.findAllNewsRepository(offset, limit)
 
     const total = await newsRepositories.countNews()
 

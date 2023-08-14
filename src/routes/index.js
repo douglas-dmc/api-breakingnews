@@ -1,7 +1,5 @@
-import express from "express"
-import connectDatabase from "../database/db.js"
-
 import { Router } from "express"
+
 import userRouter from "./user.route.js"
 import newsRouter from "./news.route.js"
 import authRouter from "./auth.route.js"
