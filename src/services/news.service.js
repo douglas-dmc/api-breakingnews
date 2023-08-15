@@ -180,7 +180,7 @@ async function likeNewsService(id, userId) {
 async function commentNewsService(postId, message, userId) {
     if (!message) throw new Error("Write a message to comment")
 
-    const post = await newsRepositories.findPostByIdRepository(postId)
+    const post = await newsRepositories.findNewsByIdRepository(postId)
 
     if (!post) throw new Error("Post not found")
 
