@@ -1,7 +1,7 @@
 import { Router } from "express"
 import swaggerUi from "swagger-ui-express"
-import swaggerDocument from "../swagger.json" assert { type: "json" }
-
+import swaggerDocument from "../swagger.json" assert { "type": "json" }
+// const swaggerDocument = require("../swagger.json")
 const swaggerRouter = Router()
 
 swaggerRouter.use("/", swaggerUi.serve)
