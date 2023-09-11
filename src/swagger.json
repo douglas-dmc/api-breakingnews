@@ -54,7 +54,7 @@
               "description": "Created",
               "content": {
                 "application/json": {
-                  "schemma": {
+                  "schema": {
                     "type": "object",
                     "$ref": "#/components/schemas/User"
                   }
